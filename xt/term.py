@@ -2,7 +2,7 @@ import logging
 
 from pyxt.command import command
 from pyxt.parser import String, VarArgs
-from pyxt.results import error
+from pyxt.results import error, result
 from xdo import Xdo
 
 log = logging.getLogger(__name__)
@@ -28,3 +28,4 @@ async def term(editor, args):
     except Exception:
         log.exception("term error")
         raise
+    return result()

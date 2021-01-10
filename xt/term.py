@@ -10,7 +10,9 @@ log = logging.getLogger(__name__)
 
 @command(VarArgs("command_parts", String("command")))
 async def term(editor, args):
-    command = " ".join(p for p in args.command_parts if p) + "\n"
+    command = " ".join(p for p in args.command_parts if p)
+    if command:
+        command += "\n"
     window_name = r"^Tilix:".encode("utf-8")
     try:
         xdo = Xdo()

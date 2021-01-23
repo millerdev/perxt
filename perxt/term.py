@@ -14,20 +14,16 @@ async def term(editor, args):
     if command:
         command += "\n"
     window_name = r"^Tilix:".encode("utf-8")
-    try:
-        xdo = Xdo()
-        editor_window = xdo.get_active_window()
-        windows = xdo.search_windows(window_name, only_visible=True)
-        if not windows:
-            return error("Tilix window not found")
-        term = windows[0]
-        xdo.focus_window(term)
-        if command:
-            xdo.enter_text_window(term, command.encode("utf-8"))
-            xdo.focus_window(editor_window)
-        else:
-            xdo.raise_window(term)
-    except Exception:
-        log.exception("term error")
-        raise
+    xdo = Xdo()
+    editor_window = xdo.get_active_window()
+    windows = xdo.search_windows(window_name, only_visible=True)
+    if not windows:
+        return error("Tilix window not found")
+    term = windows[0]
+    xdo.focus_window(term)
+    if command:
+        xdo.enter_text_window(term, command.encode("utf-8"))
+        xdo.focus_window(editor_window)
+    else:
+        xdo.raise_window(term)
     return result()

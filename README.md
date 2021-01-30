@@ -6,6 +6,11 @@ The `term` command uses
 [xdotool](https://manpages.ubuntu.com/manpages/focal/man1/xdotool.1.html) to
 send commands to [Tilix](https://gnunn1.github.io/tilix-web/).
 
+The `def` command extends PyXT's `ag` built in command to make it easier to find
+the definition of a function, class or variable by its name. Currently it
+supports Python (.py) and JavaScript (.js). It is a candidate to be moved into
+PyXT-proper once it has an extensible framework for adding new languages.
+
 Sample shortcut mappings:
 
 - Hotkey to send a command to the Tilix running beside VS Code.

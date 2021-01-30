@@ -1,3 +1,3 @@
-from . import term
+from . import agdef, term
 
-__all__ = ["term"]
+__all__ = ["agdef", "term"]

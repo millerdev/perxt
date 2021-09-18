@@ -1,16 +1,16 @@
 import logging
 
 from pyxt.command import command
-from pyxt.parser import String, VarArgs
+from pyxt.parser import UnlimitedString
 from pyxt.results import error, result
 from xdo import Xdo
 
 log = logging.getLogger(__name__)
 
 
-@command(VarArgs("command_parts", String("command")))
+@command(UnlimitedString("command"))
 async def term(editor, args):
-    command = " ".join(p for p in args.command_parts if p)
+    command = args.command
     if command:
         command += "\n"
     window_name = r"^Tilix:".encode("utf-8")

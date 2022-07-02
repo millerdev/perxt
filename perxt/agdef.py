@@ -34,14 +34,16 @@ RULES = {
 async def find_definition(editor, args):
     """Find definition
 
-    Search in files for definitions matching the specified pattern
-    based on current file's definition syntax rules.
-    See `editxt.syntax.SyntaxDefinition.definition_rules`
+    Search in files for definitions matching the specified pattern based
+    on an option passed on the command line (`--py` or `--js`) or on the
+    current file's syntax rules.
+
+    Currently only two languages are supported: Python and JavaScript.
     """
     if not args.pattern:
         return input_required("pattern is required", args)
     def_pattern = args.pattern
-    lang = get_lang(await editor.file_path)
+    lang = get_lang_option(args.options) or get_lang(await editor.file_path)
     rules = RULES.get(lang)
     if rules is None:
         return error(f"delimiters for {lang} not found")
@@ -56,3 +58,10 @@ async def find_definition(editor, args):
 
 def get_lang(file_path):
     return splitext(file_path)[1].lstrip(".")
+
+
+def get_lang_option(options):
+    for lang, data in RULES.items():
+        if any(opt in options for opt in data["ag_filetype_options"]):
+            return lang
+    return None

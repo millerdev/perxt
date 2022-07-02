@@ -22,7 +22,7 @@ async def term(editor, args):
     term = windows[0]
     xdo.focus_window(term)
     if command:
-        xdo.enter_text_window(term, command.encode("utf-8"))
+        xdo.enter_text_window(term, command.encode("utf-8"), 100)
         xdo.focus_window(editor_window)
     else:
         xdo.raise_window(term)

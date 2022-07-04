@@ -27,5 +27,5 @@ async def term(editor, args):
         time.sleep(0.00001 * len(command) + 0.01)
         xdo.focus_window(editor_window)
     else:
-        xdo.raise_window(term)
+        xdo.activate_window(term)
     return result()

@@ -14,12 +14,13 @@ async def term(editor, args):
     command = args.command
     if command:
         command += "\n"
-    window_name = r"^Tilix:".encode("utf-8")
+    classname = "^(ptyxis|tilix)$"
     xdo = Xdo()
     editor_window = xdo.get_active_window()
-    windows = xdo.search_windows(window_name, only_visible=True)
+    windows = xdo.search_windows(
+        winclassname=classname.encode("utf-8"), only_visible=True)
     if not windows:
-        return error("Tilix window not found")
+        return error(f"Terminal window not found: {classname}")
     term = windows[0]
     xdo.focus_window(term)
     if command:

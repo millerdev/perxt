@@ -9,6 +9,7 @@ license = "MIT"
 dynamic = ["version"]
 dependencies = [
     "python-libxdo-ng",
+    "six>=1.17.0",
 ]
 
 [project.urls]

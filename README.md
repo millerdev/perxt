@@ -3,7 +3,8 @@
 Intended to be forked and customized.
 
 The `term` command uses
-[xdotool](https://manpages.ubuntu.com/manpages/focal/man1/xdotool.1.html) to
+[xdotool](https://manpages.ubuntu.com/manpages/focal/man1/xdotool.1.html)
+([library docs](https://rshk.github.io/python-libxdo/library.html)) to
 send commands to [Tilix](https://gnunn1.github.io/tilix-web/).
 
 The `def` command extends PyXT's `ag` built in command to make it easier to find

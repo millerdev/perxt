@@ -1,1 +1,1 @@
-python-libxdo
+python-libxdo-ng  # also maybe try the 'xdo' package?

@@ -11,6 +11,12 @@ log = logging.getLogger(__name__)
 
 @command(UnlimitedString("command"))
 async def term(editor, args):
+    """Run a command in an external terminal
+
+    Handy sequence to run the most recent command matching some pattern:
+
+        !?pytest ?
+    """
     command = args.command
     if command:
         command += "\n"

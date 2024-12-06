@@ -7,6 +7,9 @@ authors = [
 ]
 license = "MIT"
 dynamic = ["version"]
+dependencies = [
+    "python-libxdo-ng",
+]
 
 [project.urls]
 Homepage = "https://github.com/millerdev/perxt"

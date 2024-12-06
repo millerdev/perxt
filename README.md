@@ -40,7 +40,6 @@ Installation:
 git clone https://github.com/millerdev/perxt.git
 cd perxt
 pyenv activate pyxt  # or however you ativate your pyxt virtualenv
-pip install -r requires.txt
 pip install .  # --editable can be handy here if you plan to customize the code
 ```
 

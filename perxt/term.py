@@ -31,7 +31,7 @@ async def term(editor, args):
     xdo.focus_window(term)
     if command:
         xdo.enter_text_window(term, command.encode("utf-8"), 10)
-        time.sleep(0.00001 * len(command) + 0.1)
+        time.sleep(0.001 * len(command) + 0.5)
         xdo.focus_window(editor_window)
     else:
         xdo.activate_window(term)
